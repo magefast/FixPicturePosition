@@ -3,6 +3,8 @@
  * @author magefast@gmail.com www.magefast.com
  */
 
+declare(strict_types=1);
+
 namespace Strekoza\FixPicturePosition\Plugin;
 
 use Magento\Catalog\Block\Adminhtml\Product\Helper\Form\Gallery;
