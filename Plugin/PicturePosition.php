@@ -22,14 +22,16 @@ class PicturePosition
     public function afterGetImages(Gallery $subject, $return)
     {
         $checkPosition = [];
-        foreach ($return['images'] as $key => $value) {
-            $position = intval($value['position']);
-            while (isset($checkPosition[$position])) {
-                $position = $position + 1;
-            }
+        if (is_array($return) && isset($return['images']) && is_array($return['images'])) {
+            foreach ($return['images'] as $key => $value) {
+                $position = intval($value['position']);
+                while (isset($checkPosition[$position])) {
+                    $position = $position + 1;
+                }
 
-            $return['images'][$key]['position'] = $position;
-            $checkPosition[$position] = $position;
+                $return['images'][$key]['position'] = $position;
+                $checkPosition[$position] = $position;
+            }
         }
 
         return $return;
